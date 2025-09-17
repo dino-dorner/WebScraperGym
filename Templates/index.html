@@ -1,0 +1,35 @@
+
+{% extends "base.html" %}
+
+{% block body%}
+<div class="header">
+    Ohio State Recreation Capacity
+</div>
+
+{% for gym in osuMetersData %}
+<div class="container">
+    <div class="container1">
+        <h1>{{osuHoursData[loop.index0][0]}}: {{osuHoursData[loop.index0][1][0]}} - {{osuHoursData[loop.index0][1][1]}}</h1>
+            
+                {% for key, amount in gym.items() %}
+                    <div class="row">
+                        <li style = "list-style-type: none">
+                            <span style="display: inline-block;"> <div style="font-size:large">{{ key }}: </div> {{amount[0]}}/{{amount[1]}} Last Updated: {{amount[2]}}</span>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: {{amount[0]/amount[1]*100}}%;" role="progressbar" aria-valuenow="{{amount[0]}}" aria-valuemin="0" aria-valuemax="{{amount[1]}}">
+                                        
+                                    </div>
+                                </div>
+                        </li>
+                    </div>
+                {% endfor %}
+    </div>
+</div>
+{% endfor %}
+<div class="container">
+    <div class="footer">
+            Problems? Email dorner.28@osu.edu
+    </div>
+</div>
+
+{% endblock %}

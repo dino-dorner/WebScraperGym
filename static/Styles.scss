@@ -1,0 +1,72 @@
+
+@import url("https://assets.bux.osu.edu/bux-webfonts2/bux-webfonts2.css");
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+$scarlet: #ba0c2f;
+$deep-scarlet: #70071c;
+$gray: #a7b1b7;
+$lightgray: #bfc6cb;
+$white: #ffffff;
+$serif: "BuckeyeSerif", "Georgia", serif;
+
+body {
+    color: black;
+    font-family: $serif;
+}
+
+.header{
+    text-align: center;
+    font-size: xx-large;
+    font-weight:700;
+    color: $scarlet;
+    background-color: white;
+    font-family: $serif;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border: black;
+    height:max-content;
+}
+
+.container{
+
+        .container1{
+        background-color: $lightgray;
+        margin-bottom: 10px;
+        border: 2px solid #000;
+        font-family: $serif;
+        border-radius: 6px;
+        }
+
+        .header{
+        text-align: center;
+        font-size: xx-large;
+        font-weight:700;
+        color: $scarlet;
+        background-color: white;
+        font-family: $serif;
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+        border: black;
+        height:max-content;
+        }
+
+
+    .footer{
+    height: 100%;
+    background-color: $gray;
+    text-align:center;
+    font-size:large;
+    border-radius: 6px;
+    }
+
+}
+
+.progress{
+    background-color: white;
+    font-family: $serif;
+    .progress-bar{
+        background-color: $scarlet;
+        color: gray;
+    }
+
+}
