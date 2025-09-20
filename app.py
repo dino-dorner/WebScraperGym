@@ -36,7 +36,10 @@ class getInfo:
         JONCap = {}
 
         for i in range(len(sourceData["locations"])):
-            JONCap[sourceData["locations"][i]["locationName"][3:]] = [int(sourceData["locations"][i]["lastCount"]),int(sourceData["locations"][i]["totalCapacity"]),sourceData["locations"][i]["lastUpdatedDateAndTimeToUniversityFormat"]]
+            if sourceData["locations"][i]["locationName"] == "JON - Tennis Court 1 - 2":
+                JONCap[sourceData["locations"][i]["locationName"][5:]] = [int(sourceData["locations"][i]["lastCount"]),int(sourceData["locations"][i]["totalCapacity"]),sourceData["locations"][i]["lastUpdatedDateAndTimeToUniversityFormat"]]
+            else:
+                JONCap[sourceData["locations"][i]["locationName"][3:]] = [int(sourceData["locations"][i]["lastCount"]),int(sourceData["locations"][i]["totalCapacity"]),sourceData["locations"][i]["lastUpdatedDateAndTimeToUniversityFormat"]]
         return JONCap
 
     def get_NRC(self):
