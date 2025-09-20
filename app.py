@@ -4,10 +4,11 @@ import datetime
 
 app = Flask(__name__)
 
-class getInfo:
+getCapacity = []
+getNameHours = {}
 
-    getCapacity = []
-    getNameHours = {}
+
+class getInfo:
 
     def get_JOS(self):
         url = requests.get("https://recsports.osu.edu/fms/Home/GetLocations?locationCode=jos", verify = False)
@@ -98,7 +99,6 @@ class getInfo:
         self.getNameHours = [["Jesse Owens South", josHours], ["Jesse Owens North", jonHours], ["Adventure Rec. Center", arcHours], ["North Rec. Center", nrcHours], ["RPAC", rpacHours]]
 
 
-
     def getCapMethod(self):
         self.getCapacity = [self.get_JOS(), self.get_JON(), self.get_ARC(), self.get_NRC(), self.get_RPAC()]
 
@@ -107,11 +107,18 @@ def loading():
     return render_template("loading.html")
 
 @app.route("/checker")
-def home():
+def checker():
     newRequest = getInfo()
     newRequest.getCapMethod()
     newRequest.get_hours()
-    return render_template("index.html", osuMetersData=newRequest.getCapacity, osuHoursData=newRequest.getNameHours)
+
+    getInfo.getCapacity = newRequest.getCapacity
+    getInfo.getNameHours = newRequest.getNameHours
+    return "Done!"
+
+@app.route("/checked")
+def checked():
+    return render_template("index.html", osuMetersData=getInfo.getCapacity, osuHoursData=getInfo.getNameHours)
 
 
 if __name__ == "__main__":
