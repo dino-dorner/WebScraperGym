@@ -11,7 +11,7 @@ getNameHours = {}
 class getInfo:
 
     def get_JOS(self):
-        url = requests.get("https://recsports.osu.edu/fms/Home/GetLocations?locationCode=jos", verify = False)
+        url = requests.get("https://recsports.osu.edu/fms/Home/GetLocations?locationCode=jos")
         url.raise_for_status()
         sourceData = url.json()
         JOSCap = {}
@@ -31,7 +31,7 @@ class getInfo:
         return RPACCap
 
     def get_JON(self):
-        url = requests.get("https://recsports.osu.edu/fms/Home/GetLocations?locationCode=jon", verify = False)
+        url = requests.get("https://recsports.osu.edu/fms/Home/GetLocations?locationCode=jon")
         url.raise_for_status()
         sourceData = url.json()
         JONCap = {}
