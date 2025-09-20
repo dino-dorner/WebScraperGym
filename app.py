@@ -102,8 +102,11 @@ class getInfo:
     def getCapMethod(self):
         self.getCapacity = [self.get_JOS(), self.get_JON(), self.get_ARC(), self.get_NRC(), self.get_RPAC()]
 
-
 @app.route("/")
+def loading():
+    return render_template("loading.html")
+
+@app.route("/checker")
 def home():
     newRequest = getInfo()
     newRequest.getCapMethod()

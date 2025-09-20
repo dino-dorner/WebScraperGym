@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>
+    function navigate() {
+        window.location.href = 'checker';  // Redirects user to the /map route when 'create_map' is finished
+    }
+    fetch('checker').then(navigate); // Performing 'create_map' and then calls navigate() function, declared above
+  </script>
+
+  <meta charset="UTF-8">
+  <title>Loading...</title>
+</head>
+
+<body>
+  <div class="loader"></div>
+</body>
+
+</html>
